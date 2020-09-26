@@ -3,6 +3,7 @@ package com.shadi.service
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.shadi.BuildConfig
 import com.shadi.local_db.entity.CandidateListResponse
 import com.shadi.network.ConnectivityInterceptor
 import kotlinx.coroutines.Deferred
@@ -51,7 +52,7 @@ interface ApiService {
                 .setLenient()// lenient can help with some structural issues of JSON 
                 .create()
             return Retrofit.Builder().client(okHttpClient)
-                .baseUrl("https://randomuser.me/api/")
+                .baseUrl(BuildConfig.BASE_URL)
                 .addCallAdapterFactory(CoroutineCallAdapterFactory()) // this is useful when calling retrofit using Coroutine
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()

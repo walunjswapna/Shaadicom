@@ -4,6 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.CandidateListActivity">
+    <include
+        android:id="@+id/ll_progress"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/progress" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -17,11 +23,7 @@
 
 
 
-    <include
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        layout="@layout/progress" />
+
 
 
 

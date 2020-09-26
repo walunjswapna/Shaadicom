@@ -59,11 +59,6 @@ class ShadiApplication : Application(), KodeinAware {
 
     override fun onCreate() {
         super.onCreate()
-        if (Build.VERSION.SDK_INT > 9) {
-            val policy =
-                StrictMode.ThreadPolicy.Builder().permitAll().build()
-            StrictMode.setThreadPolicy(policy)
-        }
         callApi()
 
 

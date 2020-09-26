@@ -2,10 +2,11 @@ package com.shadi.activity
 
 
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shadi.R
-import com.shadi.adapter.CategoryAdapter
+import com.shadi.adapter.CandidateAdapter
 import com.shadi.base.BaseActivity
 import com.shadi.interfaces.GetHomeSyncListener
 import com.shadi.interfaces.OnRecyclerItemClickListener
@@ -27,7 +28,7 @@ class CandidateListActivity() : BaseActivity() , KodeinAware,
     private val candidateVMFactory: CandidateVMFactory by instance()
     private var candidateList: List<ResultsItem>? = null
     private lateinit var candidateViewModel: CandidateViewModel
-    var mAdapter: CategoryAdapter? = null
+    var mAdapter: CandidateAdapter? = null
 
     override fun onStart() {
         super.onStart()
@@ -52,7 +53,8 @@ class CandidateListActivity() : BaseActivity() , KodeinAware,
 
     }
     fun initAdapter(data: List<ResultsItem>?) {
-        mAdapter = CategoryAdapter(applicationContext)
+        ll_progress.visibility= View.GONE
+        mAdapter = CandidateAdapter(applicationContext)
         mAdapter!!.setItems(data)
         mAdapter!!.setListener(this)
         rv_candidatelist.adapter = mAdapter

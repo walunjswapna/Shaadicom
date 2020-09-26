@@ -4,4 +4,6 @@
     <string name="something_went_wrong">Something went wrong please try after sometime</string>
     <string name="accept">Accept</string>
     <string name="decline">Decline</string>
+    <string name="accepted">Member Accepted</string>
+    <string name="declined">Member declined</string>
 </resources>

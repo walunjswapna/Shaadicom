@@ -3,11 +3,9 @@ package com.shadi.adapter
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import com.shadi.R
 import com.shadi.base.BaseRecyclerAdapter
@@ -15,8 +13,8 @@ import com.shadi.base.BaseViewHolder
 import com.shadi.interfaces.OnRecyclerItemClickListener
 import com.shadi.local_db.entity.ResultsItem
 
-class CategoryAdapter(context: Context) :
-    BaseRecyclerAdapter<ResultsItem, OnRecyclerItemClickListener<ResultsItem>, CategoryAdapter.CategoryVH>(
+class CandidateAdapter(context: Context) :
+    BaseRecyclerAdapter<ResultsItem, OnRecyclerItemClickListener<ResultsItem>, CandidateAdapter.CategoryVH>(
         context
     ) {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): CategoryVH {
@@ -62,9 +60,9 @@ class CategoryAdapter(context: Context) :
                 tv_status.visibility=View.VISIBLE
                 if(item.isInterested==1)
                 {
-                    tv_status.text="Status Acccepted"
+                    tv_status.text=itemView.resources.getString(R.string.accepted)
                 }else{
-                    tv_status.text="Status Declined"
+                    tv_status.text=itemView.resources.getString(R.string.declined)
                 }
             }
 
@@ -74,14 +72,14 @@ class CategoryAdapter(context: Context) :
                 listener?.onItemClickListener(item, 2)
                 ll_button.visibility=View.GONE
                 tv_status.visibility=View.VISIBLE
-                tv_status.text="Status Declined"
+                tv_status.text=itemView.resources.getString(R.string.declined)
 
             }
             text_accept.setOnClickListener {
                 listener?.onItemClickListener(item, 1)
                 ll_button.visibility=View.GONE
                 tv_status.visibility=View.VISIBLE
-                tv_status.text="Status Accepted"
+                tv_status.text=itemView.resources.getString(R.string.accepted)
             }
         }
 
